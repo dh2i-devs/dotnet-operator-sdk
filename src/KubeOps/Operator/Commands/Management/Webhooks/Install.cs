@@ -62,12 +62,6 @@ internal class Install
         var @namespace = await client.GetCurrentNamespace();
         using var certManager = new CertificateGenerator(app.Out);
 
-#if DEBUG
-        CertificatesPath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
-        CaCertificatesPath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
-        await certManager.CreateCaCertificateAsync(CaCertificatesPath);
-#endif
-
         Directory.CreateDirectory(CertificatesPath);
         if (File.Exists(Path.Join(Path.Join(CertificatesPath, "ca.pem"))))
         {

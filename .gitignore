@@ -30,3 +30,4 @@ bld/
 coverage.json
 coverage.info
 .vs
+/src/KubeOps/Properties/launchSettings.json
